@@ -17,10 +17,57 @@
 
 ### 1.1 安装ASP
 
-Ames Stereo Pipeline（ASP）是一款由美国宇航局（NASA）艾姆斯研究中心开发的的开源软件工具，主要用于处理立体影像数据以生成高分辨率的三维地形模型。该软件特别适用于行星科学领域，能够处理来自不同行星探测任务的数据，包括月球、火星以及其他天体的图像，是目前处理行星、地球光学数据主流使用的摄影测量软件。<br>
+Ames Stereo Pipeline（ASP）是一款由美国宇航局（NASA）艾姆斯研究中心开发的的开源软件工具，主要用于处理立体影像数据以生成高分辨率的三维地形模型。该软件特别适用于行星科学领域，能够处理来自不同行星探测任务的数据，包括月球、火星以及其他天体的图像，是目前处理行星、地球光学数据主流使用的摄影测量软件。按照其网址指示下载安装：https://stereopipeline.readthedocs.io/en/latest/installation.html
 
-按照其网址可下载安装：
-    https://stereopipeline.readthedocs.io/en/latest/installation.html
+（1）从github上下载ASP 3.5.0安装包：https://github.com/NeoGeographyToolkit/StereoPipeline/releases<br>
+（2）解压安装包：
+```
+tar xvf StereoPipeline-3.4.0-2024-06-19-x86_64-Linux.tar.bz2
+```
+（3）修改bash环境变量：在～/.bashrc文件中添加以下内容（"/path/to/StereoPipeline/bin"替代为实际的解压路径）
+```
+export PATH=${PATH}:/path/to/StereoPipeline/bin
+```
+（4）测试是否安装成功：
+```
+stereo --help
+```
 
-### 1.2 安装ISIS
-    在安装完成ASP软件之后，还需要安装
+
+### 1.2 安装ISIS3
+
+在安装完成ASP软件之后，还需要安装Integrated Software for Imagers and Spectrometers v3（ISIS3）软件，用于预处理非地球的立体影像数据。按照其网址指示下载安装：https://github.com/DOI-USGS/ISIS3#installation
+
+（1）推荐使用conda进行安装，建立isis虚拟环境：
+```
+# Create conda environment, then activate it.
+conda create -n isis 
+conda activate isis
+# Add conda-forge and usgs-astrogeology channels
+conda config --env --add channels conda-forge
+conda config --env --add channels usgs-astrogeology
+# Check channel order
+conda config --show channels
+```
+（2）下载并安装ISIS3:
+```
+conda install -c usgs-astrogeology isis
+```
+（3）修改isis虚拟环境的环境变量：（指定isisdata路径，用于下载遥感影像的相机参数等关键数据。
+```
+conda activate isis
+conda env config vars set ISISROOT=$CONDA_PREFIX ISISDATA=[your data path]
+conda deactivate
+conda activate isis
+```
+（4）从ISIS3下载所需的相机参数等数据：
+
+```
+# 先更新ISIS3
+conda update -c usgs-astrogeology isis
+# 如果空间足够，可以将所有相机类型的参数文件都下载，约占用2TB
+downloadIsisData all $ISISDATA
+# 更推荐下载要用的相机类型即可，例如该教程中要用到的MRO CTX相机（mro）
+downloadIsisData mro $ISISDATA
+downloadIsisData base $ISISDATA
+```
