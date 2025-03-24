@@ -1,8 +1,9 @@
-基于MRO CTX数据生成DTM
+基于MRO CTX数据生成DTM地形数据
 ===
-
-使用ASP+ISIS软件处理Mars MRO CTX立体像对生成DTM
-
+**利用ASP+ISIS软件处理Mars MRO CTX立体像对生成DTM**
+<br>（更新于2025/03/24）
+<br>
+分为以下几个步骤：
 1. 安装
 2. CTX立体像对下载
 3. 数据预处理
