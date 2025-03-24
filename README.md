@@ -65,9 +65,11 @@ conda activate isis
 ```
 # 先更新ISIS3
 conda update -c usgs-astrogeology isis
+
 # 如果空间足够，可以将所有相机类型的参数文件都下载，约占用2TB
 downloadIsisData all $ISISDATA
-# 更推荐下载要用的相机类型即可，例如该教程中要用到的MRO CTX相机（mro）
+
+# 更推荐下载要用的相机类型即可，节省下载时间，例如下载该教程中要用到的MRO CTX相机（mro）
 downloadIsisData mro $ISISDATA
 downloadIsisData base $ISISDATA
 ```
