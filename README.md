@@ -73,3 +73,10 @@ downloadIsisData all $ISISDATA
 downloadIsisData mro $ISISDATA
 downloadIsisData base $ISISDATA
 ```
+
+## 2. 下载MRO CTX立体像对
+
+目前仅试过使用NASA Mars Orbital Data Explorer (ODE)进行下载，需要根据设置要求筛选所需的CTX数据。网址如下：https://ode.rsl.wustl.edu/mars/index.aspx<br>
+这部分仍有待进一步挖掘，如何批量下载符合要求的CTX立体影像。
+
+## 3.
