@@ -119,4 +119,8 @@ cam2map from=p07_003621_1980_xi_18n133w.cal.eo.cub to=p07_003621_1980_xi_18n133w
 cam2map from=p10_005032_1980_xi_18n133w.cal.eo.cub to=p10_005032_1980_xi_18n133w.cal.eo.proj.cub
 ```
 cam2map的具体参数请看：https://isis.astrogeology.usgs.gov/8.1.0/Application/presentation/Tabbed/cam2map/cam2map.html<br><br>
-**如需拼接请保证不同影像的分辨率需一致!**
+**如需拼接请保证不同影像的分辨率一致!**
+
+
+## 4.利用ASP生成CTX DTM
+
