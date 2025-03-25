@@ -98,10 +98,10 @@ mroctx2isis from=p10_005032_1980_xi_18n133w.img to=p10_005032_1980_xi_18n133w.cu
 ```
 （2）添加Spice（航空器的导航参数和相机的标定参数，即摄影测量所使用的内外方位元素，由ISIS3提供）：
 ```
-Spiceinit from=p07_003621_1980_xi_18n133w.cub # 如没有下载ISIS3的数据，可以添加参数 web=true 替代
-Spicefit from=p10_005032_1980_xi_18n133w.cub #### 核实
-Spiceinit from=p10_005032_1980_xi_18n133w.cub
-Spicefit from=p10_005032_1980_xi_18n133w.cub #### 核实
+spiceinit from=p07_003621_1980_xi_18n133w.cub # 如没有下载ISIS3的数据，可以添加参数 web=true 替代
+spicefit from=p10_005032_1980_xi_18n133w.cub #### 核实
+spiceinit from=p10_005032_1980_xi_18n133w.cub
+spicefit from=p10_005032_1980_xi_18n133w.cub #### 核实
 ```
 （3）辐射校正：对影像进行辐射校正以去除光照影响
 ```
