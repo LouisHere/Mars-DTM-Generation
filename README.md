@@ -1,6 +1,6 @@
 基于MRO CTX数据生成DTM地形数据
 ===
-**利用ASP+ISIS软件处理Mars MRO CTX立体像对生成DTM**（更新于2025/03/24）
+**利用ASP+ISIS软件处理Mars MRO CTX立体像对生成DTM**（更新于2025/03/27）
 <br><br>
 由于ASP软件仅可在Linux或MacOS系统下运行，如果是用Windows系统，推荐使用Windows Subsystem for Linux（WSL）虚拟环境运行。
 <br><br>
@@ -123,7 +123,16 @@ cam2map的具体参数请看：https://isis.astrogeology.usgs.gov/8.1.0/Applicat
 
 
 ## 4.利用ASP生成CTX DTM
+(1) cam2map4stereo.py：
 ```
-cam2map4stereo.py --pixres mpp --resolution 20 xxx.cub xxx.cub
-bundle_adjust
+cam2map4stereo.py p07_003621_1980_xi_18n133w.cal.eo.cub p10_005032_1980_xi_18n133w.cal.eo.cub # 也可以使用 *.cal.cub
+```
+会生成*.cal.eo.map.cub文件，该文件已具有地理编码。
+(2) parallel_stereo：results/out"是结果输出的路径和名字，可根据自己需要修改
+```
+parallel_stereo p07_003621_1980_xi_18n133w.cal.eo.cub p10_005032_1980_xi_18n133w.cal.eo.cub results/out 
+```
+（3）point2dem：
+```
+point2dem -r mars --stereographic --auto-proj-center results/out-PC.tif -s 20 --orthoimage results/out-L.tif
 ```
