@@ -98,8 +98,8 @@ mroctx2isis from=p10_005032_1980_xi_18n133w.img to=p10_005032_1980_xi_18n133w.cu
 ```
 （2）添加Spice（航空器的导航参数和相机的标定参数，即摄影测量所使用的内外方位元素，由ISIS3提供）：
 ```
-spiceinit from=p07_003621_1980_xi_18n133w.cub # 如没有下载ISIS3的数据，可以添加参数 web=true 替代
-spicefit from=p10_005032_1980_xi_18n133w.cub #### 核实
+spiceinit from=p07_003621_1980_xi_18n133w.cub # 如没有下载ISIS3的数据，或提示缺少某文件，可以添加参数 web=true 解决
+spicefit from=p10_005032_1980_xi_18n133w.cub # 
 spiceinit from=p10_005032_1980_xi_18n133w.cub
 spicefit from=p10_005032_1980_xi_18n133w.cub #### 核实
 ```
@@ -123,4 +123,7 @@ cam2map的具体参数请看：https://isis.astrogeology.usgs.gov/8.1.0/Applicat
 
 
 ## 4.利用ASP生成CTX DTM
-
+```
+cam2map4stereo.py --pixres mpp --resolution 20 xxx.cub xxx.cub
+bundle_adjust
+```
