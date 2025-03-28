@@ -9,8 +9,9 @@
 分为以下几个步骤：
 1. 安装软件
 2. 下载CTX立体像对
-3. 利用ISIS预处理CTX数据
-4. 利用ASP生成CTX DTM
+3. 基本处理：利用ISIS预处理CTX数据
+4. 基本处理：利用ASP生成CTX DTM
+5. 进阶处理：CASP-GO批处理
 
 测试数据已上传： https://zenodo.org/records/15100257
 <br>
