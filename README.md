@@ -89,7 +89,7 @@ MRO CTX（Mars Reconnaissance Orbiter Context Camera）是由NASA的火星勘测
 
 ## 3.利用ISIS预处理CTX数据
 
-下载好CTX数据后，放置进同一文件夹内。本教程使用p07_003621_1980_xi_18n133w.img和p10_005032_1980_xi_18n_133w.img作为例子。
+下载好CTX数据后，放置进同一文件夹内。本教程使用p07_003621_1980_xi_18n133w.img和p10_005032_1980_xi_18n_133w.img作为例子。（测试数据已上传至 https://zenodo.org/records/15100257）
 
 （1）由原始数据IMG，转为可处理的cub格式：
 ```
