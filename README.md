@@ -1,6 +1,6 @@
 基于MRO CTX数据生成DTM地形数据
 ===
-**利用ASP+ISIS软件处理Mars MRO CTX立体像对生成DTM**（更新于2025/03/27）
+**利用ASP+ISIS软件处理Mars MRO CTX立体像对生成DTM**（更新于2025/03/28）
 <br><br>
 由于ASP软件仅可在Linux或MacOS系统下运行，如果是用Windows系统，推荐使用Windows Subsystem for Linux（WSL）虚拟环境运行。
 <br><br>
@@ -11,6 +11,8 @@
 2. 下载CTX立体像对
 3. 利用ISIS预处理CTX数据
 4. 利用ASP生成CTX DTM
+
+测试数据已上传： https://zenodo.org/records/15100257
 <br>
 
 ## 1. 安装软件
@@ -53,7 +55,7 @@ conda config --show channels
 ```
 conda install -c usgs-astrogeology isis
 ```
-（3）修改isis虚拟环境的环境变量：（指定isisdata路径，用于下载遥感影像的相机参数等关键数据。
+（3）修改isis虚拟环境的环境变量：指定isisdata路径，用于下载遥感影像的相机参数等关键数据。
 ```
 conda activate isis
 conda env config vars set ISISROOT=$CONDA_PREFIX ISISDATA=[your data path]
@@ -83,13 +85,15 @@ MRO CTX（Mars Reconnaissance Orbiter Context Camera）是由NASA的火星勘测
 
 
 
-**这部分仍有待进一步挖掘，如何批量下载符合要求的CTX立体影像。从http://planetarydata.jpl.nasa.gov/img/data/mro/ctx上用wget批量获取应该可以。**
+**这部分仍有待进一步挖掘，如何批量下载符合要求的CTX立体影像。**<br>
+**可能的方式：（1）用wget命令从JPL网站批量下载，http://planetarydata.jpl.nasa.gov/img/data/mro/ctx**
+**（2）**
 
 
 
 ## 3.利用ISIS预处理CTX数据
 
-下载好CTX数据后，放置进同一文件夹内。本教程使用p07_003621_1980_xi_18n133w.img和p10_005032_1980_xi_18n_133w.img作为例子。（测试数据已上传至 https://zenodo.org/records/15100257）
+下载好CTX数据后，放置进同一文件夹内。本教程使用p07_003621_1980_xi_18n133w.img和p10_005032_1980_xi_18n_133w.img作为例子。
 
 （1）由原始数据IMG，转为可处理的cub格式：
 ```
