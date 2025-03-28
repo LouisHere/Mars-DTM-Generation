@@ -136,7 +136,7 @@ parallel_stereo p07_003621_1980_xi_18n133w.cal.eo.map.cub p10_005032_1980_xi_18n
 ```
 point2dem -r mars --stereographic --auto-proj-center results/out-PC.tif -s 20 --orthoimage results/out-L.tif
 ```
-<br><br>
+<br>
 
 ## 5. 进阶处理：基于CASP-GO处理生成高质量DTM
 由UCL PhD.Tao Yu提出的CASP-GO方法（Tao
