@@ -1,6 +1,7 @@
 基于MRO CTX数据生成DTM地形数据
 ===
-**利用ASP+ISIS软件处理Mars MRO CTX立体像对生成DTM**（更新于2025/03/28）
+**利用ASP+ISIS软件处理Mars MRO CTX立体像对生成DTM**
+
 <br><br>
 由于ASP软件仅可在Linux或MacOS系统下运行，如果是用Windows系统，推荐使用Windows Subsystem for Linux（WSL）虚拟环境运行。
 <br><br>
