@@ -86,7 +86,7 @@ MRO CTX（Mars Reconnaissance Orbiter Context Camera）是由NASA的火星勘测
 
 **这部分仍有待进一步挖掘，如何批量下载符合要求的CTX立体影像。**<br>
 **可能的方式：（1）用wget命令或其他批处理下载软件，从JPL网站批量下载，http://planetarydata.jpl.nasa.gov/img/data/mro/ctx; (2) 从MarsSI网站上将适合范围的CTX数据加入购物车，批量下载，但该步骤需要注册帐号且帐号需要审核。**
-<br>
+<br><br>
 
 ## 3.利用ISIS预处理CTX数据
 
@@ -121,7 +121,7 @@ cam2map from=p10_005032_1980_xi_18n133w.cal.eo.cub to=p10_005032_1980_xi_18n133w
 ```
 cam2map的具体参数请看：https://isis.astrogeology.usgs.gov/8.1.0/Application/presentation/Tabbed/cam2map/cam2map.html<br><br>
 **如需拼接请保证不同影像的分辨率一致!**
-<br>
+<br><br>
 
 ## 4.利用ASP生成CTX DTM
 (1) cam2map4stereo.py：将校正后的cub文件，生成带有地理编码的立体影像*.map.cub，用于后续的立体影像匹配获取地形信息。
