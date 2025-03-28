@@ -92,29 +92,29 @@ MRO CTX（Mars Reconnaissance Orbiter Context Camera）是由NASA的火星勘测
 
 下载好CTX数据后，放置进同一文件夹内。本教程使用p07_003621_1980_xi_18n133w.img和p10_005032_1980_xi_18n_133w.img作为例子。
 
-（1）由原始数据IMG，转为可处理的cub格式：
+（1）数据转化：由原始数据IMG转为ISIS可处理的cub格式。
 ```
 mroctx2isis from=p07_003621_1980_xi_18n133w.img to=p07_003621_1980_xi_18n133w.cub
 mroctx2isis from=p10_005032_1980_xi_18n133w.img to=p10_005032_1980_xi_18n133w.cub
 ```
-（2）添加Spice（航空器的导航参数和相机的标定参数，即摄影测量所使用的内外方位元素，由ISIS3提供）：
+（2）添加Spice：Spice为航空器的导航参数和相机的标定参数，即摄影测量所使用的内外方位元素，由ISIS3提供。
 ```
 spiceinit from=p07_003621_1980_xi_18n133w.cub # 如没有下载ISIS3的数据，或提示缺少某文件，可以添加参数 web=true 解决
-spicefit from=p10_005032_1980_xi_18n133w.cub # 
+spicefit from=p10_005032_1980_xi_18n133w.cub 
 spiceinit from=p10_005032_1980_xi_18n133w.cub
-spicefit from=p10_005032_1980_xi_18n133w.cub #### 核实
+spicefit from=p10_005032_1980_xi_18n133w.cub
 ```
-（3）辐射校正：对影像进行辐射校正以去除光照影响
+（3）辐射校正：对影像进行辐射校正以去除光照影响。
 ```
 ctxcal from=p07_003621_1980_xi_18n133w.cub to=p07_003621_1980_xi_18n133w.cal.cub
 ctxcal from=p10_005032_1980_xi_18n133w.cub to=p10_005032_1980_xi_18n133w.cal.cub
 ```
-（4）条纹校正（可选）：去除部分数据中存在的条纹状噪声
+（4）条纹校正（可选）：去除部分数据中存在的条纹状噪声。经初步测试，即使无该噪声的影像用ctxevenodd处理后，对DTM结果无影响。因此建议在批处理时设置为统一使用。
 ```
 ctxevenodd from=p07_003621_1980_xi_18n133w.cal.cub to=p07_003621_1980_xi_18n133w.cal.eo.cub
 ctxevenodd from=p10_005032_1980_xi_18n133w.cal.cub to=p10_005032_1980_xi_18n133w.cal.eo.cub
 ```
-（5）绘制投影影像（可选）：将影像由相机坐标系投影至特定的地图坐标系下
+（5）绘制投影影像（可选）：将影像由相机坐标系投影至特定的地图坐标系下。
 ```
 cam2map from=p07_003621_1980_xi_18n133w.cal.eo.cub to=p07_003621_1980_xi_18n133w.cal.eo.proj.cub
 cam2map from=p10_005032_1980_xi_18n133w.cal.eo.cub to=p10_005032_1980_xi_18n133w.cal.eo.proj.cub
