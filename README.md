@@ -83,7 +83,7 @@ MRO CTX（Mars Reconnaissance Orbiter Context Camera）是由NASA的火星勘测
 
 
 
-**这部分仍有待进一步挖掘，如何批量下载符合要求的CTX立体影像。**
+**这部分仍有待进一步挖掘，如何批量下载符合要求的CTX立体影像。从http://planetarydata.jpl.nasa.gov/img/data/mro/ctx上用wget批量获取应该可以。**
 
 
 
@@ -123,16 +123,15 @@ cam2map的具体参数请看：https://isis.astrogeology.usgs.gov/8.1.0/Applicat
 
 
 ## 4.利用ASP生成CTX DTM
-(1) cam2map4stereo.py：
+(1) cam2map4stereo.py：将校正后的cub文件，生成带有地理编码的立体影像*.map.cub，用于后续的立体影像匹配获取地形信息。
 ```
-cam2map4stereo.py p07_003621_1980_xi_18n133w.cal.eo.cub p10_005032_1980_xi_18n133w.cal.eo.cub # 也可以使用 *.cal.cub
+cam2map4stereo.py p07_003621_1980_xi_18n133w.cal.eo.cub p10_005032_1980_xi_18n133w.cal.eo.cub
 ```
-会生成*.cal.eo.map.cub文件，该文件已具有地理编码。
-(2) parallel_stereo：results/out"是结果输出的路径和名字，可根据自己需要修改
+(2) parallel_stereo：利用摄影测量方法（影像特征点匹配）生成高程点云（Point Cloud, PC），"results/out"是结果输出的路径和名字，可根据自己需要修改。--pixres可以设置影像分辨率单位，例如mpp为meter per pixels。
 ```
-parallel_stereo p07_003621_1980_xi_18n133w.cal.eo.cub p10_005032_1980_xi_18n133w.cal.eo.cub results/out 
+parallel_stereo p07_003621_1980_xi_18n133w.cal.eo.map.cub p10_005032_1980_xi_18n133w.cal.eo.map.cub results/out 
 ```
-（3）point2dem：
+（3）point2dem：将生成的点云（out-PC.tif）栅格化成DTM，使用-s设置输出DTM的分辨率，分辨率单位根据上一步--pixres来确定，可以自行设置。--orthoimage为输出正射影像。
 ```
 point2dem -r mars --stereographic --auto-proj-center results/out-PC.tif -s 20 --orthoimage results/out-L.tif
 ```
