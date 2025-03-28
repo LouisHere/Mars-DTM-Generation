@@ -139,4 +139,5 @@ point2dem -r mars --stereographic --auto-proj-center results/out-PC.tif -s 20 --
 <br>
 
 ## 5. 进阶处理：基于CASP-GO处理生成高质量DTM
-由UCL PhD.Tao Yu提出的CASP-GO方法（Tao
+CASP-GO，方法，由Professor Jan-Peter Muller, Ph.D Yu Tao（from UCL）等人所提出
+¬¬l
