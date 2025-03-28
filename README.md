@@ -88,7 +88,7 @@ MRO CTX（Mars Reconnaissance Orbiter Context Camera）是由NASA的火星勘测
 **可能的方式：（1）用wget命令或其他批处理下载软件，从JPL网站批量下载，http://planetarydata.jpl.nasa.gov/img/data/mro/ctx; (2) 从MarsSI网站上将适合范围的CTX数据加入购物车，批量下载，但该步骤需要注册帐号且帐号需要审核。**
 <br><br>
 
-## 3.利用ISIS预处理CTX数据
+## 3. 基本处理：利用ISIS预处理CTX数据
 
 下载好CTX数据后，放置进同一文件夹内。本教程使用p07_003621_1980_xi_18n133w.img和p10_005032_1980_xi_18n_133w.img作为例子。
 
@@ -123,7 +123,7 @@ cam2map的具体参数请看：https://isis.astrogeology.usgs.gov/8.1.0/Applicat
 **如需拼接请保证不同影像的分辨率一致!**
 <br><br>
 
-## 4.利用ASP生成CTX DTM
+## 4. 基本处理：利用ASP生成CTX DTM
 (1) cam2map4stereo.py：将校正后的cub文件，生成带有地理编码的立体影像*.map.cub，用于后续的立体影像匹配获取地形信息。
 ```
 cam2map4stereo.py p07_003621_1980_xi_18n133w.cal.eo.cub p10_005032_1980_xi_18n133w.cal.eo.cub
@@ -136,4 +136,7 @@ parallel_stereo p07_003621_1980_xi_18n133w.cal.eo.map.cub p10_005032_1980_xi_18n
 ```
 point2dem -r mars --stereographic --auto-proj-center results/out-PC.tif -s 20 --orthoimage results/out-L.tif
 ```
-<br>
+<br><br>
+
+## 5. 进阶处理：基于CASP-GO处理生成高质量DTM
+由UCL PhD.Tao Yu提出的CASP-GO方法（Tao
