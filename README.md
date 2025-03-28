@@ -2,7 +2,7 @@
 ===
 Updated by Lejun Lu and Huaquan Yang, on 2025/03/28
 
-<br><br>
+<br>
 主要利用ASP+ISIS软件处理Mars MRO CTX立体像对（6 m分辨率），生成20 m分辨率的地形数据（DTM）。由于ASP软件仅可在Linux或MacOS系统下运行，如果是用Windows系统，推荐使用Windows Subsystem for Linux（WSL）虚拟环境运行。本教程所使用Linux Ubuntu 20.04，安装的ASP软件为3.5.0版本，ISIS软件为8.3.0版本。本教程所用的CTX测试数据已上传至： https://zenodo.org/records/15100257
 <br><br>
 
@@ -33,7 +33,7 @@ export PATH=${PATH}:/path/to/StereoPipeline/bin
 ```
 stereo --help
 ```
-
+<br>
 
 ### 1.2 安装ISIS3
 
@@ -74,7 +74,7 @@ downloadIsisData all $ISISDATA
 downloadIsisData mro $ISISDATA
 downloadIsisData base $ISISDATA
 ```
-
+<br>
 
 ## 2. 下载MRO CTX立体像对
 
@@ -86,7 +86,7 @@ MRO CTX（Mars Reconnaissance Orbiter Context Camera）是由NASA的火星勘测
 
 **这部分仍有待进一步挖掘，如何批量下载符合要求的CTX立体影像。**<br>
 **可能的方式：（1）用wget命令或其他批处理下载软件，从JPL网站批量下载，http://planetarydata.jpl.nasa.gov/img/data/mro/ctx; (2) 从MarsSI网站上将适合范围的CTX数据加入购物车，批量下载，但该步骤需要注册帐号且帐号需要审核。**
-
+<br>
 
 ## 3.利用ISIS预处理CTX数据
 
@@ -121,7 +121,7 @@ cam2map from=p10_005032_1980_xi_18n133w.cal.eo.cub to=p10_005032_1980_xi_18n133w
 ```
 cam2map的具体参数请看：https://isis.astrogeology.usgs.gov/8.1.0/Application/presentation/Tabbed/cam2map/cam2map.html<br><br>
 **如需拼接请保证不同影像的分辨率一致!**
-
+<br>
 
 ## 4.利用ASP生成CTX DTM
 (1) cam2map4stereo.py：将校正后的cub文件，生成带有地理编码的立体影像*.map.cub，用于后续的立体影像匹配获取地形信息。
@@ -136,3 +136,4 @@ parallel_stereo p07_003621_1980_xi_18n133w.cal.eo.map.cub p10_005032_1980_xi_18n
 ```
 point2dem -r mars --stereographic --auto-proj-center results/out-PC.tif -s 20 --orthoimage results/out-L.tif
 ```
+<br>
