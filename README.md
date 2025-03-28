@@ -80,9 +80,9 @@ downloadIsisData base $ISISDATA
 
 MRO CTX（Mars Reconnaissance Orbiter Context Camera）是由NASA的火星勘测轨道飞行器携带的一种相机，用于拍摄火星表面的高分辨率黑白图像。MRO CTX立体影像分辨率为6 m/pixel，幅宽约30 km。<br>
 
-目前仅试过使用NASA Mars Orbital Data Explorer (ODE)进行下载，需要根据设置要求筛选所需的CTX数据。网址如下：https://ode.rsl.wustl.edu/mars/index.aspx<br><br>
+目前仅试过使用NASA Mars Orbital Data Explorer (ODE)进行下载，需要根据设置要求筛选所需的CTX数据。网址如下：https://ode.rsl.wustl.edu/mars/index.aspx<br>
 
-另外，可以从MarsSI网站上，查看CTX Stereo的分布图，网址如下：https://marssi.univ-lyon1.fr/MarsSI/<br><br>
+另外，可以从MarsSI网站上，查看CTX Stereo的分布图，网址如下：https://marssi.univ-lyon1.fr/MarsSI/<br>
 
 **这部分仍有待进一步挖掘，如何批量下载符合要求的CTX立体影像。**<br>
 **可能的方式：（1）用wget命令或其他批处理下载软件，从JPL网站批量下载，http://planetarydata.jpl.nasa.gov/img/data/mro/ctx; (2) 从MarsSI网站上将适合范围的CTX数据加入购物车，批量下载，但该步骤需要注册帐号且帐号需要审核。**
