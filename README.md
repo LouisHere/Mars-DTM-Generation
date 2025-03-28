@@ -83,12 +83,10 @@ MRO CTX（Mars Reconnaissance Orbiter Context Camera）是由NASA的火星勘测
 
 目前仅试过使用NASA Mars Orbital Data Explorer (ODE)进行下载，需要根据设置要求筛选所需的CTX数据。网址如下：https://ode.rsl.wustl.edu/mars/index.aspx<br><br>
 
-
+另外，可以从MarsSI网站上，查看CTX Stereo的分布图，网址如下：https://marssi.univ-lyon1.fr/MarsSI/<br><br>
 
 **这部分仍有待进一步挖掘，如何批量下载符合要求的CTX立体影像。**<br>
-**可能的方式：（1）用wget命令从JPL网站批量下载，http://planetarydata.jpl.nasa.gov/img/data/mro/ctx**
-**（2）**
-
+**可能的方式：（1）用wget命令从JPL网站批量下载，http://planetarydata.jpl.nasa.gov/img/data/mro/ctx** 
 
 
 ## 3.利用ISIS预处理CTX数据
