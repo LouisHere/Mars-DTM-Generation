@@ -1,6 +1,6 @@
 基于MRO CTX数据生成DTM地形数据
 ===
-Updated by Lejun Lu and Huaquan Yang, on 2025/03/28
+Latest Updated by Lejun Lu and Huaquan Yang, on 2025/4/1
 
 <br>
 主要利用ASP+ISIS软件处理Mars MRO CTX立体像对（6 m分辨率），生成20 m分辨率的地形数据（DTM）。由于ASP软件仅可在Linux或MacOS系统下运行，如果是用Windows系统，推荐使用Windows Subsystem for Linux（WSL）虚拟环境运行。本教程所使用Linux Ubuntu 20.04，安装的ASP软件为3.5.0版本，ISIS软件为8.3.0版本。本教程所用的CTX测试数据已上传至： https://zenodo.org/records/15100257
@@ -8,7 +8,7 @@ Updated by Lejun Lu and Huaquan Yang, on 2025/03/28
 
 主要分为以下几个步骤：
 1. 安装软件
-2. 下载CTX立体像对
+2. 批量下载CTX立体像对
 3. 基本处理：利用ISIS预处理CTX数据
 4. 基本处理：利用ASP生成CTX DTM
 5. 进阶处理：CASP-GO批处理
@@ -76,17 +76,16 @@ downloadIsisData base $ISISDATA
 ```
 <br>
 
-## 2. 下载MRO CTX立体像对
+## 2. 批量下载MRO CTX立体像对
 
 MRO CTX（Mars Reconnaissance Orbiter Context Camera）是由NASA的火星勘测轨道飞行器携带的一种相机，用于拍摄火星表面的高分辨率黑白图像。MRO CTX立体影像分辨率为6 m/pixel，幅宽约30 km。<br>
 
-目前仅试过使用NASA Mars Orbital Data Explorer (ODE)进行下载，需要根据设置要求筛选所需的CTX数据。网址如下：https://ode.rsl.wustl.edu/mars/index.aspx<br>
+少量数据的话，可以使用NASA Mars Orbital Data Explorer (ODE)进行下载，需要根据设置要求筛选所需的CTX数据。网址如下：https://ode.rsl.wustl.edu/mars/index.aspx<br>
 
 另外，可以从MarsSI网站上，查看CTX Stereo的分布图，网址如下：https://marssi.univ-lyon1.fr/MarsSI/<br>
 
-**这部分仍有待进一步挖掘，如何批量下载符合要求的CTX立体影像。**<br>
-**可能的方式：（1）用wget命令或其他批处理下载软件，从JPL网站批量下载，http://planetarydata.jpl.nasa.gov/img/data/mro/ctx; (2) 从MarsSI网站上将适合范围的CTX数据加入购物车，批量下载，但该步骤需要注册帐号且帐号需要审核。**
-<br><br>
+**批量下载：目前能够从USGS网站上CTX立体像对数据：https://d32ky7zsovnyu5.cloudfront.net/CTX**
+**需要在Linux系统下使用"download_ctx_stereo.sh"，输入想要的任务编号范围即可批量下载。**
 
 ## 3. 基本处理：利用ISIS预处理CTX数据
 
@@ -138,6 +137,5 @@ point2dem -r mars --stereographic --auto-proj-center results/out-PC.tif -s 20 --
 ```
 <br>
 
-## 5. 进阶处理：基于CASP-GO处理生成高质量DTM
+## 5. 进阶处理：基于CASP-GO处理生成高质量DTM （有待完成）
 CASP-GO，方法，由Professor Jan-Peter Muller, Ph.D Yu Tao（from UCL）等人所提出
-¬¬l
