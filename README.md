@@ -3,7 +3,7 @@
 Latest Updated by Lejun Lu and Huaquan Yang, on 2025/4/1
 
 <br>
-主要利用ASP+ISIS软件处理Mars MRO CTX立体像对（6 m分辨率），生成20 m分辨率的地形数据（DTM）。由于ASP软件仅可在Linux或MacOS系统下运行，如果是用Windows系统，推荐使用Windows Subsystem for Linux（WSL）虚拟环境运行。本教程所使用Linux Ubuntu 20.04，安装的ASP软件为3.5.0版本，ISIS软件为8.3.0版本。本教程所用的CTX测试数据已上传至： https://zenodo.org/records/15100257
+主要利用ASP+ISIS软件处理Mars MRO CTX立体像对（6 m分辨率），生成20 m分辨率的地形数据（DTM）。由于ASP软件仅可在Linux或MacOS系统下运行，如果是用Windows系统，推荐使用Windows Subsystem for Linux（WSL）虚拟环境运行。本教程所使用Linux Ubuntu 20.04，安装的ASP软件为3.5.0版本，ISIS软件为8.3.0版本。
 <br><br>
 
 主要分为以下几个步骤：
@@ -89,7 +89,7 @@ MRO CTX（Mars Reconnaissance Orbiter Context Camera）是由NASA的火星勘测
 
 ## 3. 基本处理：利用ISIS预处理CTX数据
 
-下载好CTX数据后，放置进同一文件夹内。本教程使用p07_003621_1980_xi_18n133w.img和p10_005032_1980_xi_18n_133w.img作为例子。
+下载好CTX数据后，放置进同一文件夹内。本教程使用p07_003621_1980_xi_18n133w.img和p10_005032_1980_xi_18n_133w.img作为例子。本教程所用的CTX测试数据已上传至： https://zenodo.org/records/15100257
 
 （1）数据转化：由原始数据IMG转为ISIS可处理的cub格式。
 ```
