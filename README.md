@@ -173,3 +173,5 @@ variables:
 ```
 
 上面的yml文件需要注意：（1）原yml文件的“-asap_stereo=0.3.1”需改成“-asap-stereo==0.3.1”，这是pip安装库更新了；（2）variables: 是一个字典，每行分别对应一组key: value，然后注意key与value之间的冒号后面必须要有空格，空格不可省略，例如：ISISROOT:(空格) /home/llj/miniconda3/envs/isis/。
+
+conda env config vars set PATH="$PATH:$ASPROOT/bin:$ISISROOT/bin"
