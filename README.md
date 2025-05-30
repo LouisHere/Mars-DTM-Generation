@@ -11,7 +11,7 @@ Latest Updated by Lejun Lu and Huaquan Yang, on 2025/4/1
 2. 批量下载CTX立体像对
 3. 基本处理：利用ISIS预处理CTX数据
 4. 基本处理：利用ASP生成CTX DTM
-5. 进阶处理：CASP-GO批处理
+5. 进阶处理：基于ASAP批处理
 <br>
 
 ## 1. 安装软件
@@ -136,6 +136,40 @@ parallel_stereo p07_003621_1980_xi_18n133w.cal.eo.map.cub p10_005032_1980_xi_18n
 point2dem -r mars --stereographic --auto-proj-center results/out-PC.tif -s 20 --orthoimage results/out-L.tif
 ```
 <br>
+
+## 5. 进阶处理：利用ASAP批处理
+ASP Automatic Pipeline 0.3.0安装网址：https://asap-stereo.readthedocs.io/en/main/install.html
+asap.yml需要修改：
+```
+name: asap_0_3_0
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.11
+  - ale
+  - black=19.10b0
+  - pvl
+  - nb_conda_kernels
+  - jupyterlab
+  - requests
+  - fire
+  - tqdm
+  - papermill
+  - rasterio
+  - pyproj
+  - shapely
+  - sh
+  - pip
+  - pip:
+    - moody>=0.2.0
+    - asap-stereo==0.3.1
+variables:
+  ISISROOT: /path/to/your/isis/conda/env/
+  ISISDATA: /path/to/your/isis/data/dir/
+  ISISTESTDATA: /path/to/optional/isis/test/data/dir/
+  ASPROOT: /path/to/your/precompiled/StereoToolkitDirectory/
+```
 
 ## 5. 进阶处理：基于CASP-GO处理生成高质量DTM （有待完成）
 CASP-GO，方法，由Professor Jan-Peter Muller, Ph.D Yu Tao（from UCL）等人所提出
