@@ -139,7 +139,8 @@ point2dem -r mars --stereographic --auto-proj-center results/out-PC.tif -s 20 --
 
 ## 5. 进阶处理：利用ASAP批处理
 ASP Automatic Pipeline 0.3.0安装网址：https://asap-stereo.readthedocs.io/en/main/install.html
-asap.yml需要修改：
+<br>
+asap.yml：
 ```
 name: asap_0_3_0
 channels:
@@ -171,5 +172,4 @@ variables:
   ASPROOT: /path/to/your/precompiled/StereoToolkitDirectory/
 ```
 
-## 5. 进阶处理：基于CASP-GO处理生成高质量DTM （有待完成）
-CASP-GO，方法，由Professor Jan-Peter Muller, Ph.D Yu Tao（from UCL）等人所提出
+上面的yml文件需要注意：（1）原yml文件的“-asap_stereo=0.3.1”需改成“-asap-stereo==0.3.1”，这是pip安装库更新了；（2）variables: 是一个字典，每行分别对应一组key: value，然后注意key与value之间的冒号后面必须要有空格，空格不可省略，例如：ISISROOT:(空格) /home/llj/miniconda3/envs/isis/。
