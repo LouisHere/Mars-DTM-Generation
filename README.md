@@ -23,7 +23,7 @@ Ames Stereo Pipeline（ASP）是一款由美国宇航局（NASA）艾姆斯研�
 （1）从github上下载ASP 3.5.0安装包：https://github.com/NeoGeographyToolkit/StereoPipeline/releases<br>
 （2）解压安装包：
 ```
-tar xvf StereoPipeline-3.4.0-2024-06-19-x86_64-Linux.tar.bz2
+tar xvf StereoPipeline-3.5.0-2025-04-28-x86_64-Linux.tar.bz2
 ```
 （3）修改bash环境变量：在～/.bashrc文件中添加以下内容（"/path/to/StereoPipeline/bin"替代为实际的解压路径）
 ```
